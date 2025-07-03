@@ -675,7 +675,11 @@ require('lazy').setup({
         gopls = {},
         pyright = {},
         rust_analyzer = {},
-        html = {},
+        html = {
+          capabilities = {
+            documentFormattingProvider = false,
+          },
+        },
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -774,6 +778,7 @@ require('lazy').setup({
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
         javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        html = { 'prettierd', 'prettier' },
       },
     },
   },
@@ -893,7 +898,7 @@ require('lazy').setup({
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
-end,
+    end,
   },
 
   -- Highlight todo, notes, etc in comments
